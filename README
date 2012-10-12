@@ -1,0 +1,66 @@
+=====================================
+NEON-Login README UPDATED: OCT 11, 2012
+=====================================
+NEON-Login is a base version of NEON-CP
+which includes just the:
+
+- Login
+- Logout
+- Database Connections
+- Settings
+- Registration
+- Template & JQuery Files
+
+=====================================
+SETUP DIRECTIONS AS FOLLOWS:
+=====================================
+1. Create a database for the user data
+and a user that can access it.
+
+2. Move config.example to one directory
+below your root directory. As an example:
+
+If your site is in /var/www/
+Put config.example in: /var/
+
+Rename the file to "config.json" and
+update the file with your database
+settings and a random salt for password
+security. DO NOT USE THE DEFAULT!
+
+3. Import data.sql into your database.
+	
+3. Register for an account and make your 
+account active in the database. By setting
+'active' = 1.
+
+4. ???
+
+5. Profit!
+
+=====================================
+EXTRA STUFF:
+=====================================
+A: By default users are not automatically
+active and must activate via email. If you
+want to send out VALID emails for activation
+you must update lines 98 - 100 in:
+
+./includes/functions/users.inc.php
+
+B: To disable user registration update your
+settings table in your database and set
+allow registrations to 0.
+
+C: At this time there is no forgot password
+function, this will be added later, you can
+set this to 0 to disable the link to it
+from the homepage.
+
+D: I want users to be able to register with
+no activation email. Can I do it?
+
+Sure... insert a line like the one below on line
+123 in ./includes/functions/user.inc.php
+
+$sUser->uActive = 1;
